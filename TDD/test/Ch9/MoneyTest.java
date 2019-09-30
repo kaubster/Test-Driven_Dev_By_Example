@@ -1,16 +1,16 @@
-package Ch8;
+package Ch9;
 
 import org.junit.Test;
 
-import Ch8.Money;
-import Ch8.Dollar;
-import Ch8.Franc;
+import Ch9.Money;
+import Ch9.Dollar;
+import Ch9.Franc;
 
 import static org.junit.Assert.*;
 
 public class MoneyTest {
     @Test
-    public void franc_multiplication() {
+	public void franc_multiplication() {
     	Money five= Money.franc(5);
         assertEquals(Money.franc(10), five.times(2));
         assertEquals(Money.franc(15), five.times(3));

@@ -1,16 +1,14 @@
-package Ch8;
+package Ch12;
 
 import org.junit.Test;
 
-import Ch8.Money;
-import Ch8.Dollar;
-import Ch8.Franc;
+import Ch12.Money;
 
 import static org.junit.Assert.*;
 
 public class MoneyTest {
     @Test
-    public void franc_multiplication() {
+	public void franc_multiplication() {
     	Money five= Money.franc(5);
         assertEquals(Money.franc(10), five.times(2));
         assertEquals(Money.franc(15), five.times(3));
@@ -31,4 +29,13 @@ public class MoneyTest {
     	assertFalse((Money.franc(5).equals( Money.franc(6))));
     	assertFalse((Money.franc(5).equals( Money.dollar(5))));
 	}
+    
+    @Test
+    public void simple_addition() {
+    	Money five = Money.dollar(5);
+    	Expression sum = five.plus(five);
+    	Bank bank = new Bank();
+    	Money reduced = bank.reduce(sum, "USD");
+    	assertEquals(Money.dollar(10), reduced);
+    }
 }
